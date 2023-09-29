@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool isMonotonic(vector<int>& nums) {
+        if(nums[0]>=nums[nums.size()-1])
+        {
+            for(int i=0;i<nums.size()-1;i++)
+            {
+                if(nums[i]<nums[i+1])
+                return false;
+            }
+        }
+        else
+        {
+            for(int i=0;i<nums.size()-1;i++)
+            {
+                if(nums[i]>nums[i+1])
+                return false;
+            }
+        }
+        return true;
+    }
+int main(){
+
+return 0;
+}
