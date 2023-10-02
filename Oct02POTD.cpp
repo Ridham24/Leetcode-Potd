@@ -1,22 +1,43 @@
 #include<bits/stdc++.h>
 using namespace std;
- string reverseWords(string s) {
-        s.push_back(' ');
-        string t="",f="";
-        for(int i=0;i<s.length();i++)
+bool winnerOfGame(string colors) {
+        int a=0,b=0,t=0;
+        char prev=' ';
+        for(int i=0;i<colors.length();i++)
         {
-            if(s[i]==' ')
+            if(prev==' ')
             {
-                reverse(t.begin(),t.end());
-                f+=t;
-                f.push_back(' ');
-               t.clear(); 
+                t++;
+                prev=colors[i];
             }
+            else if(colors[i]==prev)
+            t++;
             else
-            t.push_back(s[i]);
+            {
+                if(prev=='A')
+                {
+                    a+=max(t-2,0);
+                }
+                else
+                {
+                    b+=max(t-2,0);
+                }
+                prev=colors[i];
+                t=1;
+            }
         }
-        f.pop_back();
-        return f;
+        if(prev=='A')
+        {
+            a+=max(t-2,0);
+       }
+        else
+        {
+            b+=max(t-2,0);
+        }
+        cout<<a<<b;
+        if(b>=a)
+        return false;
+        return true;
     }
 int main(){
 
