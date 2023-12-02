@@ -11,7 +11,7 @@ vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
             v[i]=v[i-1]-(nums[i]-nums[i-1])*(nums.size()-2*i);
         }
         return v;
-    }
+    } `                        
 int main()
 {
     return 0;
